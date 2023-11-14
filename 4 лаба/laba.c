@@ -1,14 +1,3 @@
-/*
-    2. Если устройство не мост (0-бит поля Header Type = 0)
-    вывести и расшифровать значение полей базовых регистров памяти.
-
-    6. Если устройство не мост (0-бит поля Header Type = 0)
-    вывести и расшифровать значение поля Interrupt Line.
-
-    7. Если устройство не мост (0-бит поля Header Type = 0)
-    вывести и расшифровать значение поля Interrupt Pin.
-*/
-
 #include "stdio.h"
 #include "stdbool.h"
 #include "string.h"
@@ -33,16 +22,12 @@
 #define REGISTER_SHIFT 2    // Сдвиг для регистра
 
 #define DEVICE_ID_OFFSET 0x2     // Отступ для идентификатора устройства
-//надо
 
 #define ROM_REGISTER_OFFSET 12
 
 #define BUS_REGISTER_OFFSET 6
 
 #define IOBASE_REGISTER_OFFSET 7
-
-//
-//#define INTERRUPT_PIN_OFFSET 0x8 // Отступ для Interrupt Pin
 
 #define ID_REGISTER_OFFSET 0x0          // Отступ для регистра идентификаторов
 #define HEADER_TYPE_REGISTER_OFFSET 0x3 // Отступ для регистра типа заголовка
@@ -58,21 +43,6 @@
 #define UNKNOWN_DEVICE_MESSAGE "UNKNOWN DEVICE"
 #define UNKNOWN_VENDOR_MESSAGE "UNKNOWN VENDOR"
 
-//#define INTERRUPT_PIN_NOT_USED_MESSAGE "NOT USED"
-//#define INTERRUPT_PIN_NOT_USED 0
-//#define INTERRUPT_PIN_A_MESSAGE "INTA#"
-//#define INTERRUPT_PIN_A 1
-//#define INTERRUPT_PIN_B_MESSAGE "INTB#"
-//#define INTERRUPT_PIN_B 2
-//#define INTERRUPT_PIN_C_MESSAGE "INTC#"
-//#define INTERRUPT_PIN_C 3
-//#define INTERRUPT_PIN_D_MESSAGE "INTD#"
-//#define INTERRUPT_PIN_D 4
-//#define INVALID_INTERRUPT_PIN "INVALID PIN"
-//
-//#define RESERVED_INTERRUPT_MESSAGE "RESERVED"
-//#define IRQ_MESSAGE "IRQ%d"
-//#define INVALID_INTERRUPT_LINE_MESSAGE "INVALID INTERRUPT LINE"
 
 // Вычислить адрес, по которому необходимо обратиться
 int calculateAddress(int bus, int device, int function, int _register)
@@ -205,7 +175,7 @@ void printIO(int bus, int device, int function){
     }
 }
 
-//
+
 // Проверить функцию
 void checkFunction(int bus, int device, int function)
 {
